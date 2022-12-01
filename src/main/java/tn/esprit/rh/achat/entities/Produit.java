@@ -13,7 +13,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +22,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class Produit implements Serializable {
 
 	/**
@@ -50,8 +48,8 @@ public class Produit implements Serializable {
 	@JsonIgnore
 	private CategorieProduit categorieProduit;
 	
-
-
-	
-
+	public Produit(long l, long l1) {
+	}
+	public Produit(long idProduit, String codeProduit, int i, Object o, Object dateCreation, Object dateDerniereModification, Object stock, Object detailFacture, Object categorieProduit) {
+	}
 }
