@@ -51,14 +51,6 @@ stages {
            
 			  
 }
-   post { 
-    success { 
-        mail to: "khalil.djebbi@esprit.tn", 
-        subject: "Welcome to DevOps project Front-End : Pipeline Success", 
-        body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}" } 
-    failure { mail to: "khalil.djebbi@esprit.tn", 
-    subject: "Pipeline Failure", 
-    body: "Welcome to DevOps project Front-End :Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} " } 
-}
+ 
 
 }
