@@ -22,7 +22,8 @@ public class StockRestController {
 	@GetMapping("/retrieve-all-stocks")
 	@ResponseBody
 	public List<Stock> getStocks() {
-		return stockService.retrieveAllStocks();
+		List<Stock> list = stockService.retrieveAllStocks();
+		return list;
 	}
 
 	// http://localhost:8089/SpringMVC/stock/retrieve-stock/8
@@ -36,9 +37,11 @@ public class StockRestController {
 	@PostMapping("/add-stock")
 	@ResponseBody
 	public Stock addStock(@RequestBody Stock s) {
-		return stockService.addStock(s);
+		Stock stock = stockService.addStock(s);
+		return stock;
 	}
 
+	// http://localhost:8089/SpringMVC/stock/remove-stock/{stock-id}
 	@DeleteMapping("/remove-stock/{stock-id}")
 	@ResponseBody
 	public void removeStock(@PathVariable("stock-id") Long stockId) {
@@ -52,5 +55,20 @@ public class StockRestController {
 		return stockService.updateStock(stock);
 	}
 
-	
+	/*
+	 * Spring Scheduler : Comparer QteMin tolérée (à ne pa dépasser) avec
+	 * Quantité du stock et afficher sur console la liste des produits inférieur
+	 * au stock La fct schédulé doit obligatoirement etre sans paramètres et
+	 * sans retour (void)
+	 */
+	// http://localhost:8089/SpringMVC/stock/retrieveStatusStock
+	// @Scheduled(fixedRate = 60000)
+	// @Scheduled(fixedDelay = 60000)
+	//@Scheduled(cron = "*/60 * * * * *")
+	//@GetMapping("/retrieveStatusStock")
+//	@ResponseBody
+//	public void retrieveStatusStock() {
+//		stockService.retrieveStatusStock();
+//	}
+
 }

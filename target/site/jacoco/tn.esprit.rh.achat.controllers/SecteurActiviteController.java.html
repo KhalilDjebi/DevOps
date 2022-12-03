@@ -21,37 +21,39 @@ import java.util.List;
 	@GetMapping(&quot;/retrieve-all-secteurActivite&quot;)
 	@ResponseBody
 	public List&lt;SecteurActivite&gt; getSecteurActivite() {
-<span class="nc" id="L24">		return secteurActiviteService.retrieveAllSecteurActivite();</span>
+<span class="nc" id="L24">		List&lt;SecteurActivite&gt; list = secteurActiviteService.retrieveAllSecteurActivite();</span>
+<span class="nc" id="L25">		return list;</span>
 	}
 
 	// http://localhost:8089/SpringMVC/secteurActivite/retrieve-secteurActivite/8
 	@GetMapping(&quot;/retrieve-secteurActivite/{secteurActivite-id}&quot;)
 	@ResponseBody
 	public SecteurActivite retrieveSecteurActivite(@PathVariable(&quot;secteurActivite-id&quot;) Long secteurActiviteId) {
-<span class="nc" id="L31">		return secteurActiviteService.retrieveSecteurActivite(secteurActiviteId);</span>
+<span class="nc" id="L32">		return secteurActiviteService.retrieveSecteurActivite(secteurActiviteId);</span>
 	}
 
 	// http://localhost:8089/SpringMVC/secteurActivite/add-secteurActivite
 	@PostMapping(&quot;/add-secteurActivite&quot;)
 	@ResponseBody
 	public SecteurActivite addSecteurActivite(@RequestBody SecteurActivite sa) {
-<span class="nc" id="L38">		return secteurActiviteService.addSecteurActivite(sa);</span>
+<span class="nc" id="L39">		SecteurActivite secteurActivite = secteurActiviteService.addSecteurActivite(sa);</span>
+<span class="nc" id="L40">		return secteurActivite;</span>
 	}
 
-	
+	// http://localhost:8089/SpringMVC/secteurActivite/remove-secteurActivite/{secteurActivite-id}
 	@DeleteMapping(&quot;/remove-secteurActivite/{secteurActivite-id}&quot;)
 	@ResponseBody
 	public void removeSecteurActivite(@PathVariable(&quot;secteurActivite-id&quot;) Long secteurActiviteId) {
-<span class="nc" id="L45">		secteurActiviteService.deleteSecteurActivite(secteurActiviteId);</span>
-<span class="nc" id="L46">	}</span>
+<span class="nc" id="L47">		secteurActiviteService.deleteSecteurActivite(secteurActiviteId);</span>
+<span class="nc" id="L48">	}</span>
 
 	// http://localhost:8089/SpringMVC/secteurActivite/modify-secteurActivite
 	@PutMapping(&quot;/modify-secteurActivite&quot;)
 	@ResponseBody
 	public SecteurActivite modifySecteurActivite(@RequestBody SecteurActivite secteurActivite) {
-<span class="nc" id="L52">		return secteurActiviteService.updateSecteurActivite(secteurActivite);</span>
+<span class="nc" id="L54">		return secteurActiviteService.updateSecteurActivite(secteurActivite);</span>
 	}
 
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

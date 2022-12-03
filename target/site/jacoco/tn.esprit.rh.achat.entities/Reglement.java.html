@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
+<span class="nc" id="L19">@Getter</span>
 <span class="nc" id="L20">@Setter</span>
 <span class="nc" id="L21">@AllArgsConstructor</span>
 <span class="nc" id="L22">@NoArgsConstructor</span>
@@ -25,15 +25,15 @@ public class Reglement implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L28">	private Long idReglement;</span>
-<span class="nc" id="L29">	private float montantPaye;</span>
-<span class="nc" id="L30">	private float montantRestant;</span>
-<span class="nc" id="L31">	private Boolean payee;</span>
+	private Long idReglement;
+	private float montantPaye;
+	private float montantRestant;
+	private Boolean payee;
 	@Temporal(TemporalType.DATE)
-<span class="nc" id="L33">	private Date dateReglement;</span>
+	private Date dateReglement;
 	@ManyToOne
 	@JsonIgnore
-<span class="nc" id="L36">	private Facture facture;</span>
+	private Facture facture;
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

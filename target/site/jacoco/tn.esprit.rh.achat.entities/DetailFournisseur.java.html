@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
+<span class="nc" id="L19">@Getter</span>
 <span class="nc" id="L20">@Setter</span>
 <span class="nc" id="L21">@AllArgsConstructor</span>
 <span class="nc" id="L22">@NoArgsConstructor</span>
@@ -24,15 +24,15 @@ public class DetailFournisseur implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L27">	private Long idDetailFournisseur;</span>
-<span class="nc" id="L28">	private String email;</span>
+	private Long idDetailFournisseur;
+	private String email;
 	@Temporal(TemporalType.DATE)
-<span class="nc" id="L30">	private Date dateDebutCollaboration;</span>
-<span class="nc" id="L31">	private String adresse;</span>
-<span class="nc" id="L32">	private String matricule;</span>
+	private Date dateDebutCollaboration;
+	private String adresse;
+	private String matricule;
 	@OneToOne(mappedBy=&quot;detailFournisseur&quot;)
 	@JsonIgnore
-<span class="nc" id="L35">	private Fournisseur fournisseur;</span>
+	private Fournisseur fournisseur;
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

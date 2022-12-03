@@ -18,42 +18,66 @@ import java.util.List;
 	@Autowired
 	IProduitService produitService;
 
+	// http://localhost:8089/SpringMVC/produit/retrieve-all-produits
 	@GetMapping(&quot;/retrieve-all-produits&quot;)
 	@ResponseBody
 	public List&lt;Produit&gt; getProduits() {
-<span class="nc" id="L24">		return produitService.retrieveAllProduits();</span>
+<span class="nc" id="L25">		List&lt;Produit&gt; list = produitService.retrieveAllProduits();</span>
+<span class="nc" id="L26">		return list;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/produit/retrieve-produit/8
 	@GetMapping(&quot;/retrieve-produit/{produit-id}&quot;)
 	@ResponseBody
 	public Produit retrieveRayon(@PathVariable(&quot;produit-id&quot;) Long produitId) {
-<span class="nc" id="L30">		return produitService.retrieveProduit(produitId);</span>
+<span class="nc" id="L33">		return produitService.retrieveProduit(produitId);</span>
 	}
 
+	/* Ajouter en produit tout en lui affectant la catégorie produit et le stock associés */
+	// http://localhost:8089/SpringMVC/produit/add-produit/{idCategorieProduit}/{idStock}
 	@PostMapping(&quot;/add-produit&quot;)
 	@ResponseBody
 	public Produit addProduit(@RequestBody Produit p) {
-<span class="nc" id="L36">		return produitService.addProduit(p);</span>
+<span class="nc" id="L41">		Produit produit = produitService.addProduit(p);</span>
+<span class="nc" id="L42">		return produit;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/produit/remove-produit/{produit-id}
 	@DeleteMapping(&quot;/remove-produit/{produit-id}&quot;)
 	@ResponseBody
 	public void removeProduit(@PathVariable(&quot;produit-id&quot;) Long produitId) {
-<span class="nc" id="L42">		produitService.deleteProduit(produitId);</span>
-<span class="nc" id="L43">	}</span>
+<span class="nc" id="L49">		produitService.deleteProduit(produitId);</span>
+<span class="nc" id="L50">	}</span>
 
+	// http://localhost:8089/SpringMVC/produit/modify-produit/{idCategorieProduit}/{idStock}
 	@PutMapping(&quot;/modify-produit&quot;)
 	@ResponseBody
 	public Produit modifyProduit(@RequestBody Produit p) {
-<span class="nc" id="L48">		return produitService.updateProduit(p);</span>
+<span class="nc" id="L56">		return produitService.updateProduit(p);</span>
 	}
 
-	
+	/*
+	 * Si le responsable magasin souhaite modifier le stock du produit il peut
+	 * le faire en l'affectant au stock en question
+	 */
+	// http://localhost:8089/SpringMVC/produit/assignProduitToStock/1/5
 	@PutMapping(value = &quot;/assignProduitToStock/{idProduit}/{idStock}&quot;)
 	public void assignProduitToStock(@PathVariable(&quot;idProduit&quot;) Long idProduit, @PathVariable(&quot;idStock&quot;) Long idStock) {
-<span class="nc" id="L54">		produitService.assignProduitToStock(idProduit, idStock);</span>
-<span class="nc" id="L55">	}</span>
+<span class="nc" id="L66">		produitService.assignProduitToStock(idProduit, idStock);</span>
+<span class="nc" id="L67">	}</span>
 
-	
+	/*
+	 * Revenu Brut d'un produit (qte * prix unitaire de toutes les lignes du
+	 * detailFacture du produit envoyé en paramètre )
+	 */
+	// http://localhost:8089/SpringMVC/produit/getRevenuBrutProduit/1/{startDate}/{endDate}
+/*	@GetMapping(value = &quot;/getRevenuBrutProduit/{idProduit}/{startDate}/{endDate}&quot;)
+	public float getRevenuBrutProduit(@PathVariable(&quot;idProduit&quot;) Long idProduit,
+			@PathVariable(name = &quot;startDate&quot;) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+			@PathVariable(name = &quot;endDate&quot;) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+
+		return produitService.getRevenuBrutProduit(idProduit, startDate, endDate);
+	}*/
+
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

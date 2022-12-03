@@ -29,10 +29,10 @@ import java.util.List;
 
 	@Override
 	public List&lt;Fournisseur&gt; retrieveAllFournisseurs() {
-<span class="nc" id="L32">		List&lt;Fournisseur&gt; fournisseurs =  fournisseurRepository.findAll();</span>
+<span class="nc" id="L32">		List&lt;Fournisseur&gt; fournisseurs = (List&lt;Fournisseur&gt;) fournisseurRepository.findAll();</span>
 <span class="nc bnc" id="L33" title="All 2 branches missed.">		for (Fournisseur fournisseur : fournisseurs) {</span>
 <span class="nc" id="L34">			log.info(&quot; fournisseur : &quot; + fournisseur);</span>
-<span class="nc" id="L35">		}</span>
+		}
 <span class="nc" id="L36">		return fournisseurs;</span>
 	}
 
@@ -68,20 +68,21 @@ import java.util.List;
 	@Override
 	public Fournisseur retrieveFournisseur(Long fournisseurId) {
 
-<span class="nc" id="L71">		return fournisseurRepository.findById(fournisseurId).orElse(null);</span>
+<span class="nc" id="L71">		Fournisseur fournisseur = fournisseurRepository.findById(fournisseurId).orElse(null);</span>
+<span class="nc" id="L72">		return fournisseur;</span>
 	}
 
 	@Override
 	public void assignSecteurActiviteToFournisseur(Long idSecteurActivite, Long idFournisseur) {
-<span class="nc" id="L76">		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);</span>
-<span class="nc" id="L77">		SecteurActivite secteurActivite = secteurActiviteRepository.findById(idSecteurActivite).orElse(null);</span>
-<span class="nc" id="L78">        fournisseur.getSecteurActivites().add(secteurActivite);</span>
-<span class="nc" id="L79">        fournisseurRepository.save(fournisseur);</span>
+<span class="nc" id="L77">		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);</span>
+<span class="nc" id="L78">		SecteurActivite secteurActivite = secteurActiviteRepository.findById(idSecteurActivite).orElse(null);</span>
+<span class="nc" id="L79">        fournisseur.getSecteurActivites().add(secteurActivite);</span>
+<span class="nc" id="L80">        fournisseurRepository.save(fournisseur);</span>
 		
 		
-<span class="nc" id="L82">	}</span>
+<span class="nc" id="L83">	}</span>
 
 	
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -24,37 +24,40 @@ import java.util.List;
     @PostMapping(&quot;/add-reglement&quot;)
     @ResponseBody
     public Reglement addReglement(@RequestBody Reglement r) {
-<span class="nc" id="L27">        return reglementService.addReglement(r);</span>
+<span class="nc" id="L27">        Reglement reglement = reglementService.addReglement(r);</span>
+<span class="nc" id="L28">        return reglement;</span>
     }
     @GetMapping(&quot;/retrieve-all-reglements&quot;)
     @ResponseBody
     public List&lt;Reglement&gt; getReglement() {
-<span class="nc" id="L32">        return reglementService.retrieveAllReglements();</span>
+<span class="nc" id="L33">        List&lt;Reglement&gt; list = reglementService.retrieveAllReglements();</span>
+<span class="nc" id="L34">        return list;</span>
     }
 
     // http://localhost:8089/SpringMVC/reglement/retrieve-reglement/8
     @GetMapping(&quot;/retrieve-reglement/{reglement-id}&quot;)
     @ResponseBody
     public Reglement retrieveReglement(@PathVariable(&quot;reglement-id&quot;) Long reglementId) {
-<span class="nc" id="L39">        return reglementService.retrieveReglement(reglementId);</span>
+<span class="nc" id="L41">        return reglementService.retrieveReglement(reglementId);</span>
     }
 
     // http://localhost:8089/SpringMVC/reglement/retrieveReglementByFacture/8
     @GetMapping(&quot;/retrieveReglementByFacture/{facture-id}&quot;)
     @ResponseBody
     public List&lt;Reglement&gt; retrieveReglementByFacture(@PathVariable(&quot;facture-id&quot;) Long factureId) {
-<span class="nc" id="L46">        return reglementService.retrieveReglementByFacture(factureId);</span>
+<span class="nc" id="L48">        return reglementService.retrieveReglementByFacture(factureId);</span>
     }
 
+    // http://localhost:8089/SpringMVC/reglement/getChiffreAffaireEntreDeuxDate/{startDate}/{endDate}
     @GetMapping(value = &quot;/getChiffreAffaireEntreDeuxDate/{startDate}/{endDate}&quot;)
     public float getChiffreAffaireEntreDeuxDate(
             @PathVariable(name = &quot;startDate&quot;) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
             @PathVariable(name = &quot;endDate&quot;) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
         try {
-<span class="nc" id="L54">            return reglementService.getChiffreAffaireEntreDeuxDate(startDate, endDate);</span>
-<span class="nc" id="L55">        } catch (Exception e) {</span>
-<span class="nc" id="L56">            return 0;</span>
+<span class="nc" id="L57">            return reglementService.getChiffreAffaireEntreDeuxDate(startDate, endDate);</span>
+<span class="nc" id="L58">        } catch (Exception e) {</span>
+<span class="nc" id="L59">            return 0;</span>
         }
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

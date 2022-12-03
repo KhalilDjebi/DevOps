@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
-<span class="nc" id="L18">@Setter</span>
-<span class="nc" id="L19">@AllArgsConstructor</span>
-<span class="nc" id="L20">@NoArgsConstructor</span>
+<span class="pc" id="L17">@Getter</span>
+<span class="pc" id="L18">@Setter</span>
+<span class="fc" id="L19">@AllArgsConstructor</span>
+<span class="fc" id="L20">@NoArgsConstructor</span>
 public class CategorieProduit implements Serializable {
 
 	/**
@@ -26,11 +26,11 @@ public class CategorieProduit implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L29">	private Long idCategorieProduit;</span>
-<span class="nc" id="L30">	private String codeCategorie;</span>
-<span class="nc" id="L31">	private String libelleCategorie;</span>
+	private Long idCategorieProduit;
+	private String codeCategorie;
+	private String libelleCategorie;
 	@OneToMany(mappedBy = &quot;categorieProduit&quot;)
 	@JsonIgnore
-<span class="nc" id="L34">	private Set&lt;Produit&gt; produits;</span>
+	private Set&lt;Produit&gt; produits;
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
+<span class="nc" id="L20">@Getter</span>
 <span class="nc" id="L21">@Setter</span>
 <span class="nc" id="L22">@AllArgsConstructor</span>
 <span class="nc" id="L23">@NoArgsConstructor</span>
@@ -26,14 +26,14 @@ public class Operateur implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L29">	private Long idOperateur;</span>
-<span class="nc" id="L30">	private String nom;</span>
-<span class="nc" id="L31">	private String prenom;</span>
+	private Long idOperateur;
+	private String nom;
+	private String prenom;
 	
-<span class="nc" id="L33">	private String password;</span>
+	private String password;
 	@OneToMany
 	@JsonIgnore
-<span class="nc" id="L36">	private Set&lt;Facture&gt; factures;</span>
+	private Set&lt;Facture&gt; factures;
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

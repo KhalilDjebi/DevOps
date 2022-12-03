@@ -14,7 +14,7 @@ import java.util.List;
 	OperateurRepository operateurRepository;
 	@Override
 	public List&lt;Operateur&gt; retrieveAllOperateurs() {
-<span class="nc" id="L17">		return  operateurRepository.findAll();</span>
+<span class="nc" id="L17">		return (List&lt;Operateur&gt;) operateurRepository.findAll();</span>
 	}
 
 	@Override
@@ -31,14 +31,15 @@ import java.util.List;
 
 	@Override
 	public Operateur updateOperateur(Operateur o) {
-<span class="nc" id="L34">		operateurRepository.saveAndFlush(o);</span>
+<span class="nc" id="L34">		operateurRepository.save(o);</span>
 <span class="nc" id="L35">		return o;</span>
 	}
 
 	@Override
 	public Operateur retrieveOperateur(Long id) {
-<span class="nc" id="L40">		return operateurRepository.findById(id).orElse(null);</span>
+<span class="nc" id="L40">		Operateur operateur = operateurRepository.findById(id).orElse(null);</span>
+<span class="nc" id="L41">		return operateur;</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

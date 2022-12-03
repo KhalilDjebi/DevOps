@@ -22,36 +22,54 @@ import java.util.List;
 	@GetMapping(&quot;/retrieve-all-stocks&quot;)
 	@ResponseBody
 	public List&lt;Stock&gt; getStocks() {
-<span class="nc" id="L25">		return stockService.retrieveAllStocks();</span>
+<span class="nc" id="L25">		List&lt;Stock&gt; list = stockService.retrieveAllStocks();</span>
+<span class="nc" id="L26">		return list;</span>
 	}
 
 	// http://localhost:8089/SpringMVC/stock/retrieve-stock/8
 	@GetMapping(&quot;/retrieve-stock/{stock-id}&quot;)
 	@ResponseBody
 	public Stock retrieveStock(@PathVariable(&quot;stock-id&quot;) Long stockId) {
-<span class="nc" id="L32">		return stockService.retrieveStock(stockId);</span>
+<span class="nc" id="L33">		return stockService.retrieveStock(stockId);</span>
 	}
 
 	// http://localhost:8089/SpringMVC/stock/add-stock
 	@PostMapping(&quot;/add-stock&quot;)
 	@ResponseBody
 	public Stock addStock(@RequestBody Stock s) {
-<span class="nc" id="L39">		return stockService.addStock(s);</span>
+<span class="nc" id="L40">		Stock stock = stockService.addStock(s);</span>
+<span class="nc" id="L41">		return stock;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/stock/remove-stock/{stock-id}
 	@DeleteMapping(&quot;/remove-stock/{stock-id}&quot;)
 	@ResponseBody
 	public void removeStock(@PathVariable(&quot;stock-id&quot;) Long stockId) {
-<span class="nc" id="L45">		stockService.deleteStock(stockId);</span>
-<span class="nc" id="L46">	}</span>
+<span class="nc" id="L48">		stockService.deleteStock(stockId);</span>
+<span class="nc" id="L49">	}</span>
 
 	// http://localhost:8089/SpringMVC/stock/modify-stock
 	@PutMapping(&quot;/modify-stock&quot;)
 	@ResponseBody
 	public Stock modifyStock(@RequestBody Stock stock) {
-<span class="nc" id="L52">		return stockService.updateStock(stock);</span>
+<span class="nc" id="L55">		return stockService.updateStock(stock);</span>
 	}
 
-	
+	/*
+	 * Spring Scheduler : Comparer QteMin tolérée (à ne pa dépasser) avec
+	 * Quantité du stock et afficher sur console la liste des produits inférieur
+	 * au stock La fct schédulé doit obligatoirement etre sans paramètres et
+	 * sans retour (void)
+	 */
+	// http://localhost:8089/SpringMVC/stock/retrieveStatusStock
+	// @Scheduled(fixedRate = 60000)
+	// @Scheduled(fixedDelay = 60000)
+	//@Scheduled(cron = &quot;*/60 * * * * *&quot;)
+	//@GetMapping(&quot;/retrieveStatusStock&quot;)
+//	@ResponseBody
+//	public void retrieveStatusStock() {
+//		stockService.retrieveStatusStock();
+//	}
+
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

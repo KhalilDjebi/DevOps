@@ -18,7 +18,7 @@ import java.util.List;
 	ReglementRepository reglementRepository;
 	@Override
 	public List&lt;Reglement&gt; retrieveAllReglements() {
-<span class="nc" id="L21">		return  reglementRepository.findAll();</span>
+<span class="nc" id="L21">		return (List&lt;Reglement&gt;) reglementRepository.findAll();</span>
 	}
 
 	@Override
@@ -29,18 +29,25 @@ import java.util.List;
 
 	@Override
 	public Reglement retrieveReglement(Long id) {
-<span class="nc" id="L32">		return reglementRepository.findById(id).orElse(null);</span>
+<span class="nc" id="L32">		Reglement reglement = reglementRepository.findById(id).orElse(null);</span>
+		
+<span class="nc" id="L34">		return reglement;</span>
 	}
 
 	@Override
 	public List&lt;Reglement&gt; retrieveReglementByFacture(Long idFacture) {
-<span class="nc" id="L37">		return reglementRepository.retrieveReglementByFacture(idFacture);</span>
+<span class="nc" id="L39">		List&lt;Reglement&gt; reglements= reglementRepository.retrieveReglementByFacture(idFacture);</span>
+<span class="nc" id="L40">		return reglements;</span>
+		
+//		ou bien(Sans JPQL)
+//		Facture f= factureRepository.findById(idFacture).get();
+//		return (List&lt;Reglement&gt;) f.getReglements();
 	}
 
 	@Override
 	public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate) {
-<span class="nc" id="L42">		return reglementRepository.getChiffreAffaireEntreDeuxDate( startDate, endDate);</span>
+<span class="nc" id="L49">		return reglementRepository.getChiffreAffaireEntreDeuxDate( startDate, endDate);</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

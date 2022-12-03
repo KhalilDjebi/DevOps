@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
+<span class="nc" id="L23">@Getter</span>
 <span class="nc" id="L24">@Setter</span>
 <span class="nc" id="L25">@AllArgsConstructor</span>
 <span class="nc" id="L26">@NoArgsConstructor</span>
@@ -30,21 +30,21 @@ public class Fournisseur implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L33">	private Long idFournisseur;</span>
-<span class="nc" id="L34">	private String code;</span>
-<span class="nc" id="L35">	private String libelle;</span>
+	private Long idFournisseur;
+	private String code;
+	private String libelle;
 	@Enumerated(EnumType.STRING)
-<span class="nc" id="L37">	private CategorieFournisseur  categorieFournisseur;</span>
+	private CategorieFournisseur  categorieFournisseur;
 	@OneToMany(mappedBy=&quot;fournisseur&quot;)
 	@JsonIgnore
-<span class="nc" id="L40">	private Set&lt;Facture&gt; factures;</span>
+	private Set&lt;Facture&gt; factures;
     @ManyToMany
     @JsonIgnore
-<span class="nc" id="L43">    private Set&lt;SecteurActivite&gt; secteurActivites;</span>
+    private Set&lt;SecteurActivite&gt; secteurActivites;
     @OneToOne(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
-<span class="nc" id="L45">    private DetailFournisseur detailFournisseur;</span>
+    private DetailFournisseur detailFournisseur;
     
 
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

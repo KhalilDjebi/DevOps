@@ -16,36 +16,43 @@ import java.util.List;
 	@Autowired
 	ICategorieProduitService categorieProduitService;
 	
+	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-all-categorieProduit
 	@GetMapping(&quot;/retrieve-all-categorieProduit&quot;)
 	@ResponseBody
 	public List&lt;CategorieProduit&gt; getCategorieProduit() {
-<span class="nc" id="L22">		return categorieProduitService.retrieveAllCategorieProduits();</span>
+<span class="nc" id="L23">		List&lt;CategorieProduit&gt; list = categorieProduitService.retrieveAllCategorieProduits();</span>
+<span class="nc" id="L24">		return list;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-categorieProduit/8
 	@GetMapping(&quot;/retrieve-categorieProduit/{categorieProduit-id}&quot;)
 	@ResponseBody
-	public CategorieProduit retrieveCategorieProduit(@PathVariable(&quot;categorieProduit-id&quot;) Long categorieProduitId, CategorieProduit cp) {
-<span class="nc" id="L28">		return categorieProduitService.retrieveCategorieProduit(categorieProduitId, cp);</span>
+	public CategorieProduit retrieveCategorieProduit(@PathVariable(&quot;categorieProduit-id&quot;) Long categorieProduitId) {
+<span class="nc" id="L31">		return categorieProduitService.retrieveCategorieProduit(categorieProduitId);</span>
 	}
 
+	// http://localhost:8089/SpringMVC/categorieProduit/add-categorieProduit
 	@PostMapping(&quot;/add-categorieProduit&quot;)
 	@ResponseBody
 	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
-<span class="nc" id="L34">		return categorieProduitService.addCategorieProduit(cp);</span>
+<span class="nc" id="L38">		CategorieProduit categorieProduit = categorieProduitService.addCategorieProduit(cp);</span>
+<span class="nc" id="L39">		return categorieProduit;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/categorieProduit/remove-categorieProduit/{categorieProduit-id}
 	@DeleteMapping(&quot;/remove-categorieProduit/{categorieProduit-id}&quot;)
 	@ResponseBody
 	public void removeCategorieProduit(@PathVariable(&quot;categorieProduit-id&quot;) Long categorieProduitId) {
-<span class="nc" id="L40">		categorieProduitService.deleteCategorieProduit(categorieProduitId);</span>
-<span class="nc" id="L41">	}</span>
+<span class="nc" id="L46">		categorieProduitService.deleteCategorieProduit(categorieProduitId);</span>
+<span class="nc" id="L47">	}</span>
 
+	// http://localhost:8089/SpringMVC/categorieProduit/modify-categorieProduit
 	@PutMapping(&quot;/modify-categorieProduit&quot;)
 	@ResponseBody
 	public CategorieProduit modifyCategorieProduit(@RequestBody CategorieProduit categorieProduit) {
-<span class="nc" id="L46">		return categorieProduitService.updateCategorieProduit(categorieProduit);</span>
+<span class="nc" id="L53">		return categorieProduitService.updateCategorieProduit(categorieProduit);</span>
 	}
 
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

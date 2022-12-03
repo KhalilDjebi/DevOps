@@ -13,17 +13,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
-<span class="nc" id="L23">@Setter</span>
-<span class="nc" id="L24">@AllArgsConstructor</span>
-<span class="nc" id="L25">@NoArgsConstructor</span>
-<span class="nc" id="L26">@Builder</span>
+<span class="nc" id="L21">@Getter</span>
+<span class="nc" id="L22">@Setter</span>
+<span class="nc" id="L23">@AllArgsConstructor</span>
+<span class="nc" id="L24">@NoArgsConstructor</span>
 public class Produit implements Serializable {
 
 	/**
@@ -32,27 +30,27 @@ public class Produit implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L35">	private Long idProduit;</span>
-<span class="nc" id="L36">	private String codeProduit;</span>
-<span class="nc" id="L37">	private String libelleProduit;</span>
-<span class="nc" id="L38">	private float prix;</span>
+	private Long idProduit;
+	private String codeProduit;
+	private String libelleProduit;
+	private float prix;
 	@Temporal(TemporalType.DATE)
-<span class="nc" id="L40">	private Date dateCreation;</span>
+	private Date dateCreation;
 	@Temporal(TemporalType.DATE)
-<span class="nc" id="L42">	private Date dateDerniereModification;</span>
+	private Date dateDerniereModification;
 	@ManyToOne
 	@JsonIgnore
-<span class="nc" id="L45">	private Stock stock;</span>
+	private Stock stock;
 	@OneToMany(mappedBy = &quot;produit&quot;)
 	@JsonIgnore
-<span class="nc" id="L48">	private Set&lt;DetailFacture&gt; detailFacture;</span>
+	private Set&lt;DetailFacture&gt; detailFacture;
 	@ManyToOne
 	@JsonIgnore
-<span class="nc" id="L51">	private CategorieProduit categorieProduit;</span>
+	private CategorieProduit categorieProduit;
 	
-
-
-	
-
+<span class="nc" id="L51">	public Produit(long l, long l1) {</span>
+<span class="nc" id="L52">	}</span>
+<span class="nc" id="L53">	public Produit(long idProduit, String codeProduit, int i, Object o, Object dateCreation, Object dateDerniereModification, Object stock, Object detailFacture, Object categorieProduit) {</span>
+<span class="nc" id="L54">	}</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

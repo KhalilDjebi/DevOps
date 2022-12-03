@@ -6,7 +6,7 @@ stages {
 
          stage('Cloning from GitHub') {
                 steps {
-                    git branch: 'khalildjebi', url: 'https://github.com/KhalilDjebi/DevOps.git'
+                    git branch: 'main', url: 'https://github.com/KhalilDjebi/DevOps.git'
                 }  
             }
 
@@ -36,29 +36,8 @@ stages {
                sh 'mvn verify'
           }
        }
-       stage("docker build") {
-                       steps{
-
-                           sh 'docker build -t khalildjebi/achat .'
-                       }
-               }
-           stage("DockerHub login ") {
-                       steps{
-                           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u khalildjebi -p dockerpass'
-                       }
-               }
-           stage("DockerHub push") {
-                       steps{
-                        sh 'docker push khalildjebi/achat'
-                   }
-              }
-       stage('Docker-compose file') {
-
-                          steps {
-                               sh 'docker-compose up -d';
-                               sh 'sleep 300'
-                               
-                                 }  }
+     
+       
        stage ('sonar test (acceptance-phase)'){
     steps {
        script {

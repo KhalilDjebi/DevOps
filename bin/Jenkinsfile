@@ -1,0 +1,89 @@
+pipeline {
+agent any
+
+stages {
+         stage('GitHub Clone') {
+                steps {
+                    git branch: 'rania', url: 'https://github.com/semah1213/achat.git'
+                }  
+            }
+			
+			stage('Docker compose') {
+            steps {
+            sh 'docker-compose up -d';
+			}  
+			}
+			
+               stage('Maven Clean') {
+                        steps {
+                           sh 'mvn clean '
+                        }
+                    }
+					
+          stage('Maven Compile') {
+            steps {
+               sh 'mvn compile'
+           }
+        }
+
+          stage('Maven Test') {
+            steps {
+               sh 'mvn test'
+            }
+        }
+          stage('Maven Verify') {
+             steps {
+               sh 'mvn verify'
+          }
+       }
+		stage('Docker compose') {
+            steps {
+            sh 'docker-compose up -d';
+			}  
+			}
+			
+			stage('Wait 120s') {
+            steps {
+			sh 'sleep 120'
+			}  
+			}
+    stage ('Scan Sonar'){
+    steps {
+    sh "mvn sonar:sonar \
+          -Dsonar.projectKey=achat \
+          -Dsonar.host.url=http://192.168.2.81:9000 \
+          -Dsonar.login=fcf7cf274ff3a9f9328adae768e331b29628f56b"
+    }
+    }
+	 stage('Nexus Deploy') {
+      steps {
+        sh 'mvn clean deploy -Dmaven.test.skip=true'
+      }
+    }
+	
+	
+	stage("Docker Image") {
+                       steps{
+
+                           sh 'docker build -t raniaothmani/achat .'
+                       }
+               }
+           stage("DockerHub Login") {
+                       steps{
+                           sh 'echo "Login to dockerhub in progress" | docker login -u raniaothmani -p azerty12345'
+                       }
+               }
+           stage("DockerHub Push") {
+                       steps{
+                        sh 'docker push raniaothmani/achat'
+                   }
+              }
+			  
+			  
+}
+   post { 
+    success { mail to: "rania.othmani@esprit.tn", subject: "Succes Notification", body: " Job done ${env.JOB_NAME}, \n Build Number: ${env.BUILD_NUMBER}, \n Build URL: ${env.BUILD_URL}" }
+		
+    failure { mail to: "rania.othmani@esprit.tn", subject: "Pipeline Failure", body: " Failure on job ${env.JOB_NAME}, \n Build Number: ${env.BUILD_NUMBER}, \n Build URL: ${env.BUILD_URL} " } 
+}
+}

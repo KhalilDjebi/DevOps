@@ -8,7 +8,7 @@ import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 import java.util.List;
 
 @Service
-<span class="nc" id="L11">public class CategorieProduitServiceImpl implements ICategorieProduitService {</span>
+<span class="fc" id="L11">public class CategorieProduitServiceImpl implements ICategorieProduitService {</span>
 
 	
 	@Autowired
@@ -16,32 +16,32 @@ import java.util.List;
 	@Override
 	public List&lt;CategorieProduit&gt; retrieveAllCategorieProduits() {
 		
-<span class="nc" id="L19">		return categorieProduitRepository.findAll();</span>
+<span class="fc" id="L19">		return categorieProduitRepository.findAll();</span>
 	}
 
 	@Override
 	public CategorieProduit addCategorieProduit(CategorieProduit cp) {
-<span class="nc" id="L24">		categorieProduitRepository.save(cp);</span>
-<span class="nc" id="L25">		return cp;</span>
+<span class="fc" id="L24">		categorieProduitRepository.save(cp);</span>
+<span class="fc" id="L25">		return cp;</span>
 	}
 
 	@Override
 	public void deleteCategorieProduit(Long id) {
-<span class="nc" id="L30">		categorieProduitRepository.deleteById(id);</span>
+<span class="fc" id="L30">		categorieProduitRepository.deleteById(id);</span>
 		
-<span class="nc" id="L32">	}</span>
+<span class="fc" id="L32">	}</span>
 
 	@Override
 	public CategorieProduit updateCategorieProduit(CategorieProduit cp) {
-<span class="nc" id="L36">		categorieProduitRepository.saveAndFlush(cp);</span>
-<span class="nc" id="L37">		return cp;</span>
+<span class="fc" id="L36">		categorieProduitRepository.save(cp);</span>
+<span class="fc" id="L37">		return cp;</span>
 	}
 
 	@Override
-	public CategorieProduit retrieveCategorieProduit(Long id, CategorieProduit categorieProduit) {
-<span class="nc" id="L42">		 categorieProduitRepository.findById(id).orElse(null);</span>
-<span class="nc" id="L43">		return categorieProduit;</span>
+	public CategorieProduit retrieveCategorieProduit(Long id) {
+<span class="fc" id="L42">		CategorieProduit categorieProduit = categorieProduitRepository.findById(id).orElse(null);</span>
+<span class="fc" id="L43">		return categorieProduit;</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

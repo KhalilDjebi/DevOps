@@ -14,7 +14,7 @@ import java.util.List;
 	SecteurActiviteRepository secteurActiviteRepository;
 	@Override
 	public List&lt;SecteurActivite&gt; retrieveAllSecteurActivite() {
-<span class="nc" id="L17">		return  secteurActiviteRepository.findAll();</span>
+<span class="nc" id="L17">		return (List&lt;SecteurActivite&gt;) secteurActiviteRepository.findAll();</span>
 	}
 
 	@Override
@@ -31,14 +31,15 @@ import java.util.List;
 
 	@Override
 	public SecteurActivite updateSecteurActivite(SecteurActivite sa) {
-<span class="nc" id="L34">		secteurActiviteRepository.saveAndFlush(sa);</span>
+<span class="nc" id="L34">		secteurActiviteRepository.save(sa);</span>
 <span class="nc" id="L35">		return sa;</span>
 	}
 
 	@Override
 	public SecteurActivite retrieveSecteurActivite(Long id) {
-<span class="nc" id="L40">		return secteurActiviteRepository.findById(id).orElse(null);</span>
+<span class="nc" id="L40">		SecteurActivite secteurActivite = secteurActiviteRepository.findById(id).orElse(null);</span>
+<span class="nc" id="L41">		return secteurActivite;</span>
 	}
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -9,34 +9,33 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-<span class="nc" id="L16">@Builder</span>
+
 @Entity
-@Getter
-<span class="nc" id="L19">@Setter</span>
-<span class="nc" id="L20">@AllArgsConstructor</span>
-<span class="nc" id="L21">@NoArgsConstructor</span>
+<span class="nc" id="L17">@Getter</span>
+<span class="nc" id="L18">@Setter</span>
+<span class="nc" id="L19">@AllArgsConstructor</span>
+<span class="nc" id="L20">@NoArgsConstructor</span>
 public class Stock implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L27">	private Long idStock;</span>
-<span class="nc" id="L28">	private String libelleStock;</span>
-<span class="nc" id="L29">	private Integer qte;</span>
-<span class="nc" id="L30">	private Integer qteMin;</span>
+	private Long idStock;
+	private String libelleStock;
+	private Integer qte;
+	private Integer qteMin;
 	@OneToMany(mappedBy = &quot;stock&quot;)
 	@JsonIgnore
-<span class="nc" id="L33">	private Set&lt;Produit&gt; produits;</span>
+	private Set&lt;Produit&gt; produits;
 	public Stock(String libelleStock, Integer qte, Integer qteMin) {
-<span class="nc" id="L35">		super();</span>
-<span class="nc" id="L36">		this.libelleStock = libelleStock;</span>
-<span class="nc" id="L37">		this.qte = qte;</span>
-<span class="nc" id="L38">		this.qteMin = qteMin;</span>
-<span class="nc" id="L39">	}</span>
+<span class="nc" id="L34">		super();</span>
+<span class="nc" id="L35">		this.libelleStock = libelleStock;</span>
+<span class="nc" id="L36">		this.qte = qte;</span>
+<span class="nc" id="L37">		this.qteMin = qteMin;</span>
+<span class="nc" id="L38">	}</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

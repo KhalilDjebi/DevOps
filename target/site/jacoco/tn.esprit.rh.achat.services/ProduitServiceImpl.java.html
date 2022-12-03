@@ -25,10 +25,10 @@ import java.util.List;
 
 	@Override
 	public List&lt;Produit&gt; retrieveAllProduits() {
-<span class="nc" id="L28">		List&lt;Produit&gt; produits =  produitRepository.findAll();</span>
+<span class="nc" id="L28">		List&lt;Produit&gt; produits = (List&lt;Produit&gt;) produitRepository.findAll();</span>
 <span class="nc bnc" id="L29" title="All 2 branches missed.">		for (Produit produit : produits) {</span>
 <span class="nc" id="L30">			log.info(&quot; Produit : &quot; + produit);</span>
-<span class="nc" id="L31">		}</span>
+		}
 <span class="nc" id="L32">		return produits;</span>
 	}
 
@@ -68,4 +68,4 @@ import java.util.List;
 
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

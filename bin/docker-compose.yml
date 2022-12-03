@@ -1,0 +1,39 @@
+version: '3'
+services:
+  database:
+    image: mysql:latest
+    container_name: database
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: achatdb
+    ports:
+      - 3306:3306
+    networks:
+      - AppNet
+
+  spring-boot:
+    image: raniaothmani/achat
+    container_name: spring
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    networks:
+      - AppNet
+    restart: on-failure
+  
+  sonarqube:
+    image: sonarqube:8.9.7-community
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+  nexus:
+    image: sonatype/nexus3
+    ports:
+      - "8081:8081"
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+networks:
+  AppNet:

@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
+<span class="nc" id="L21">@Getter</span>
 <span class="nc" id="L22">@Setter</span>
 <span class="nc" id="L23">@AllArgsConstructor</span>
 <span class="nc" id="L24">@NoArgsConstructor</span>
@@ -27,23 +27,23 @@ public class Facture implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L30">	private Long idFacture;</span>
-<span class="nc" id="L31">	private float montantRemise;</span>
-<span class="nc" id="L32">	private float montantFacture;</span>
+	private Long idFacture;
+	private float montantRemise;
+	private float montantFacture;
 	@Temporal(TemporalType.DATE)
-<span class="nc" id="L34">	private Date dateCreationFacture;</span>
+	private Date dateCreationFacture;
 	@Temporal(TemporalType.DATE)
-<span class="nc" id="L36">	private Date dateDerniereModificationFacture;</span>
-<span class="nc" id="L37">	private Boolean archivee;</span>
+	private Date dateDerniereModificationFacture;
+	private Boolean archivee;
 	@OneToMany(mappedBy = &quot;facture&quot;)
-<span class="nc" id="L39">	private Set&lt;DetailFacture&gt; detailsFacture;</span>
+	private Set&lt;DetailFacture&gt; detailsFacture;
     @ManyToOne
     @JsonIgnore
-<span class="nc" id="L42">    private Fournisseur fournisseur;</span>
+    private Fournisseur fournisseur;
     @OneToMany(mappedBy=&quot;facture&quot;)
     @JsonIgnore
-<span class="nc" id="L45">    private Set&lt;Reglement&gt; reglements;</span>
+    private Set&lt;Reglement&gt; reglements;
 
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

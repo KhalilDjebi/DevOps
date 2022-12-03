@@ -17,40 +17,48 @@ import java.util.List;
 	@Autowired
 	IFournisseurService fournisseurService;
 
+	// http://localhost:8089/SpringMVC/fournisseur/retrieve-all-fournisseurs
 	@GetMapping(&quot;/retrieve-all-fournisseurs&quot;)
 	@ResponseBody
 	public List&lt;Fournisseur&gt; getFournisseurs() {
-<span class="nc" id="L23">		return fournisseurService.retrieveAllFournisseurs();</span>
+<span class="nc" id="L24">		List&lt;Fournisseur&gt; fournisseurs = fournisseurService.retrieveAllFournisseurs();</span>
+<span class="nc" id="L25">		return fournisseurs;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/fournisseur/retrieve-fournisseur/8
 	@GetMapping(&quot;/retrieve-fournisseur/{fournisseur-id}&quot;)
 	@ResponseBody
 	public Fournisseur retrieveFournisseur(@PathVariable(&quot;fournisseur-id&quot;) Long fournisseurId) {
-<span class="nc" id="L29">		return fournisseurService.retrieveFournisseur(fournisseurId);</span>
+<span class="nc" id="L32">		return fournisseurService.retrieveFournisseur(fournisseurId);</span>
 	}
 
+	// http://localhost:8089/SpringMVC/fournisseur/add-fournisseur
 	@PostMapping(&quot;/add-fournisseur&quot;)
 	@ResponseBody
 	public Fournisseur addFournisseur(@RequestBody Fournisseur f) {
-<span class="nc" id="L35">		return fournisseurService.addFournisseur(f);</span>
+<span class="nc" id="L39">		Fournisseur fournisseur = fournisseurService.addFournisseur(f);</span>
+<span class="nc" id="L40">		return fournisseur;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/fournisseur/remove-fournisseur/{fournisseur-id}
 	@DeleteMapping(&quot;/remove-fournisseur/{fournisseur-id}&quot;)
 	@ResponseBody
 	public void removeFournisseur(@PathVariable(&quot;fournisseur-id&quot;) Long fournisseurId) {
-<span class="nc" id="L41">		fournisseurService.deleteFournisseur(fournisseurId);</span>
-<span class="nc" id="L42">	}</span>
+<span class="nc" id="L47">		fournisseurService.deleteFournisseur(fournisseurId);</span>
+<span class="nc" id="L48">	}</span>
 
+	// http://localhost:8089/SpringMVC/fournisseur/modify-fournisseur
 	@PutMapping(&quot;/modify-fournisseur&quot;)
 	@ResponseBody
 	public Fournisseur modifyFournisseur(@RequestBody Fournisseur fournisseur) {
-<span class="nc" id="L47">		return fournisseurService.updateFournisseur(fournisseur);</span>
+<span class="nc" id="L54">		return fournisseurService.updateFournisseur(fournisseur);</span>
 	}
 
+	// http://localhost:8089/SpringMVC/fournisseur/assignSecteurActiviteToFournisseur/1/5
 		@PutMapping(value = &quot;/assignSecteurActiviteToFournisseur/{idSecteurActivite}/{idFournisseur}&quot;)
 		public void assignProduitToStock(@PathVariable(&quot;idSecteurActivite&quot;) Long idSecteurActivite, @PathVariable(&quot;idFournisseur&quot;) Long idFournisseur) {
-<span class="nc" id="L52">			fournisseurService.assignSecteurActiviteToFournisseur(idSecteurActivite, idFournisseur);</span>
-<span class="nc" id="L53">		}</span>
+<span class="nc" id="L60">			fournisseurService.assignSecteurActiviteToFournisseur(idSecteurActivite, idFournisseur);</span>
+<span class="nc" id="L61">		}</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

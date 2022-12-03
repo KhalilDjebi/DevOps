@@ -17,36 +17,43 @@ import java.util.List;
 	@Autowired
 	IOperateurService operateurService;
 	
+	// http://localhost:8089/SpringMVC/operateur/retrieve-all-operateurs
 	@GetMapping(&quot;/retrieve-all-operateurs&quot;)
 	@ResponseBody
 	public List&lt;Operateur&gt; getOperateurs() {
-<span class="nc" id="L23">		return operateurService.retrieveAllOperateurs();</span>
+<span class="nc" id="L24">		List&lt;Operateur&gt; list = operateurService.retrieveAllOperateurs();</span>
+<span class="nc" id="L25">		return list;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/operateur/retrieve-operateur/8
 	@GetMapping(&quot;/retrieve-operateur/{operateur-id}&quot;)
 	@ResponseBody
 	public Operateur retrieveOperateur(@PathVariable(&quot;operateur-id&quot;) Long operateurId) {
-<span class="nc" id="L29">		return operateurService.retrieveOperateur(operateurId);</span>
+<span class="nc" id="L32">		return operateurService.retrieveOperateur(operateurId);</span>
 	}
 
+	// http://localhost:8089/SpringMVC/operateur/add-operateur
 	@PostMapping(&quot;/add-operateur&quot;)
 	@ResponseBody
 	public Operateur addOperateur(@RequestBody Operateur op) {
-<span class="nc" id="L35">		return operateurService.addOperateur(op);</span>
+<span class="nc" id="L39">		Operateur operateur = operateurService.addOperateur(op);</span>
+<span class="nc" id="L40">		return operateur;</span>
 	}
 
+	// http://localhost:8089/SpringMVC/operateur/remove-operateur/{operateur-id}
 	@DeleteMapping(&quot;/remove-operateur/{operateur-id}&quot;)
 	@ResponseBody
 	public void removeOperateur(@PathVariable(&quot;operateur-id&quot;) Long operateurId) {
-<span class="nc" id="L41">		operateurService.deleteOperateur(operateurId);</span>
-<span class="nc" id="L42">	}</span>
+<span class="nc" id="L47">		operateurService.deleteOperateur(operateurId);</span>
+<span class="nc" id="L48">	}</span>
 
+	// http://localhost:8089/SpringMVC/operateur/modify-operateur
 	@PutMapping(&quot;/modify-operateur&quot;)
 	@ResponseBody
 	public Operateur modifyOperateur(@RequestBody Operateur operateur) {
-<span class="nc" id="L47">		return operateurService.updateOperateur(operateur);</span>
+<span class="nc" id="L54">		return operateurService.updateOperateur(operateur);</span>
 	}
 
 	
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
