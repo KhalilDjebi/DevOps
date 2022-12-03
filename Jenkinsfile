@@ -4,7 +4,7 @@ agent any
 stages {
          stage('GitHub Clone') {
                 steps {
-                    git branch: 'rania', url: 'https://github.com/semah1213/achat.git'
+                    git branch: 'khalildjebi', url: 'https://github.com/KhalilDjebi/DevOps.git'
                 }  
             }
 
