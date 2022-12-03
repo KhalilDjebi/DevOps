@@ -10,59 +10,46 @@ stages {
                 }  
             }
 
-               stage('maven clean') {
+                stage('Maven Clean') {
                         steps {
                            sh 'mvn clean '
                         }
                     }
-          stage('maven compile') {
+					
+          stage('Maven Compile') {
             steps {
                sh 'mvn compile'
            }
         }
 
-          stage('maven test / MOCKITO (commit-phase)') {
+          stage('Maven Test') {
             steps {
                sh 'mvn test'
             }
         }
-        stage('maven package') {
-             steps {
-               sh 'mvn package'
-          }
-       }
-          stage('maven verify') {
+          stage('Maven Verify') {
              steps {
                sh 'mvn verify'
           }
        }
-     
-       
-       stage ('sonar test (acceptance-phase)'){
+       stage ('Scan Sonar'){
     steps {
-       script {
-           withSonarQubeEnv('sonarqube_token'){
-               sh "mvn sonar:sonar"
-           }
-       }
+    sh "mvn sonar:sonar \
+          -Dsonar.projectKey=achat \
+          -Dsonar.host.url=http://192.168.43.149:9000 \
+          -Dsonar.login=fcf7cf274ff3a9f9328adae768e331b29628f56b"
     }
-       }
-
-           stage('deploy to Nexus') {
+    }
+    
+    	 stage('Nexus Deploy') {
       steps {
         sh 'mvn clean deploy -Dmaven.test.skip=true'
       }
     }
-    stage('get from Nexus') {
-      steps {
-        sh 'wget --user=admin --password=8425 http://192.168.43.40:8081/repository/maven-releases/tn/esprit/rh/achat/1.0/achat-1.0.jar'
-      }
-    }
-
-        
-
-
-
+    
+    
+           
+			  
 }
    post { 
     success { 
