@@ -37,7 +37,7 @@ stages {
     sh "mvn sonar:sonar \
           -Dsonar.projectKey=achat \
           -Dsonar.host.url=http://192.168.43.149:9000 \
-          -Dsonar.login=fcf7cf274ff3a9f9328adae768e331b29628f56b"
+          -Dsonar.login=2bb7c66a6d3230af7afee2d9858bad13823ea60c"
     }
     }
     
