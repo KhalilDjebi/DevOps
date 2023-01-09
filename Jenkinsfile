@@ -66,7 +66,7 @@ stages {
        stage('Docker-compose file') {
 
                           steps {
-                               sh 'docker-compose up -d';
+                               sh 'docker compose up -d';
                                sh 'sleep 300'
                                
                                  }  }
