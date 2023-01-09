@@ -21,15 +21,7 @@ services:
     networks:
       - AppNet
     restart: on-failure
-  angular:
-    image: khalildjebbi/angularproject
-    container_name: angular
-    ports:
-      - 80:80
-    depends_on:
-      - spring-boot
-    networks:
-      - AppNet
+  
   sonarqube:
     image: sonarqube:8.9.7-community
     ports:
