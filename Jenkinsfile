@@ -47,7 +47,29 @@ stages {
       }
     }
     
-    
+    stage("docker build") {
+                       steps{
+
+                           sh 'docker build -t khalildjebbi/achat .'
+                       }
+               }
+           stage("DockerHub login ") {
+                       steps{
+                           sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u khalildjebbi -p dockerpass'
+                       }
+               }
+           stage("DockerHub push") {
+                       steps{
+                        sh 'docker push khalildjebbi/achat'
+                   }
+              }
+       stage('Docker-compose file') {
+
+                          steps {
+                               sh 'docker-compose up -d';
+                               sh 'sleep 300'
+                               
+                                 }  }
            
 			  
 }
