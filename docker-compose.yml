@@ -25,7 +25,7 @@ services:
   sonarqube:
     image: sonarqube:8.9.7-community
     ports:
-      - "9000:9000"
+      - "9000"
       - "9092:9092"
   nexus:
     image: sonatype/nexus3
